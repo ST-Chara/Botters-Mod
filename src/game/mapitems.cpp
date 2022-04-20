@@ -67,8 +67,6 @@ bool IsValidSwitchTile(int Index)
 		Index == TILE_FREEZE ||
 		Index == TILE_DFREEZE ||
 		Index == TILE_DUNFREEZE ||
-		Index == TILE_HIT_ENABLE ||
-		Index == TILE_HIT_DISABLE ||
 		(Index >= TILE_SWITCHTIMEDOPEN && Index <= TILE_SWITCHCLOSE) ||
 		Index == TILE_ADD_TIME ||
 		Index == TILE_SUBTRACT_TIME ||

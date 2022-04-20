@@ -1,5 +1,3 @@
-DDNet PvP
-===
+== Botters-Mod ==
 
-[Info to be added]
-
+Rebase KillingFloor mod.

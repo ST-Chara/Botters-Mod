@@ -684,30 +684,6 @@ void IGameController::OnInternalCharacterSpawn(CCharacter *pChr)
 
 bool IGameController::OnInternalCharacterTile(CCharacter *pChr, int MapIndex)
 {
-	if(OnCharacterTile(pChr, MapIndex))
-		return true;
-
-	if(!pChr->IsAlive())
-		return false;
-
-	CPlayer *pPlayer = pChr->GetPlayer();
-	int ClientID = pPlayer->GetCID();
-
-	int m_TileIndex = GameServer()->Collision()->GetTileIndex(MapIndex);
-	int m_TileFIndex = GameServer()->Collision()->GetFTileIndex(MapIndex);
-
-	// solo part
-	if(((m_TileIndex == TILE_SOLO_ENABLE) || (m_TileFIndex == TILE_SOLO_ENABLE)) && !GameServer()->Teams()->m_Core.GetSolo(ClientID))
-	{
-		GameServer()->SendChatTarget(ClientID, "You are now in a solo part");
-		pChr->SetSolo(true);
-	}
-	else if(((m_TileIndex == TILE_SOLO_DISABLE) || (m_TileFIndex == TILE_SOLO_DISABLE)) && GameServer()->Teams()->m_Core.GetSolo(ClientID))
-	{
-		GameServer()->SendChatTarget(ClientID, "You are now out of the solo part");
-		pChr->SetSolo(false);
-	}
-
 	return false;
 }
 
